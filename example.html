@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <script src="colorConvert.js"></script>
+		<script>
+		  console.log("===name2Hex");
+		  console.log(colorConvert.name2Hex("green"));
+		  console.log("===name2Hex2");
+		  console.log(colorConvert.name2Hex("green1"));
+		  
+		  console.log("===name2RGB");
+		  console.log(colorConvert.name2RGB("green"));
+		  console.log("===name2RGB2");
+		  console.log(colorConvert.name2RGB("green1"));
+		  
+		  console.log("===hex2Name");
+		  console.log( colorConvert.hex2Name("#FF0000"));
+		  console.log("===hex2Name2");
+		  console.log( colorConvert.hex2Name("#111111"));
+		  
+		  console.log("===hex2RGB");
+      console.log(colorConvert.hex2RGB("#00FF00"));
+		  console.log("===hex2RGB2");
+      console.log(colorConvert.hex2RGB("*****"));
+      
+      console.log("===RGB2Hex");
+      console.log(colorConvert.RGB2Hex("rgb(0,255,255)"));
+      console.log("===RGB2Hex2");
+      console.log(colorConvert.RGB2Hex(0,255,255));
+      console.log("===RGB2Hex3");
+      console.log(colorConvert.RGB2Hex("rgb(0,fdsfds,fdsfds)"));
+      
+      console.log("===RGB2Name");
+      console.log(colorConvert.RGB2Name("rgb(0,255,255)"));
+      console.log("===RGB2Name2");
+      console.log(colorConvert.RGB2Name(0,255,255));
+      console.log("===RGB2Name2");
+      console.log(colorConvert.RGB2Name("rgb(0,rewrew,rrerer)"));
+    </script>
+  </body>
+</html>
