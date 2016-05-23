@@ -1,5 +1,5 @@
 var colorConvert = {
-  //ÑÕÉ«Ãû³ÆºÍ16½øÖÆ¶ÔÓ¦±í
+  //é¢œè‰²åç§°å’Œ16è¿›åˆ¶å¯¹åº”è¡¨
   dict_name2Hex: {
     "maroon": "#800000",
     "darkred": "#8B0000",
@@ -136,7 +136,7 @@ var colorConvert = {
     "ghostwhite": "#F8F8FF",
     "white": "#FFFFFF"
   },
-  //16½øÖÆºÍÑÕÉ«Ãû³Æ¶ÔÓ¦±í
+  //16è¿›åˆ¶å’Œé¢œè‰²åç§°å¯¹åº”è¡¨
   dict_hex2Name: {
     "#800000": "maroon",
     "#8B0000": "darkred",
@@ -273,22 +273,22 @@ var colorConvert = {
     "#F8F8FF": "ghostwhite",
     "#FFFFFF": "white"
   },
-  //ÑÕÉ«Ãû³Æ×ª16½øÖÆ red -> #FF0000 Ã»ÓÐÕÒµ½·µ»Øundefined
+  //é¢œè‰²åç§°è½¬16è¿›åˆ¶ red -> #FF0000 æ²¡æœ‰æ‰¾åˆ°è¿”å›žundefined
   name2Hex: function(aName) {
     return this.dict_name2Hex[aName];
   },
-  //ÑÕÉ«Ãû³Æ×ªRGB red -> [255,0,0] Ã»ÓÐÕÒµ½·µ»Øundefined
+  //é¢œè‰²åç§°è½¬RGB red -> [255,0,0] æ²¡æœ‰æ‰¾åˆ°è¿”å›žundefined
   name2RGB: function(aName) {
     var hex = this.name2Hex(aName);
     if(!hex)
       return undefined;    
     return this.hex2RGB(hex);
   },
-  //16½øÖÆ×ªÑÕÉ«Ãû³Æ #FF0000 -> red Ã»ÓÐÕÒµ½·µ»Øundefined
+  //16è¿›åˆ¶è½¬é¢œè‰²åç§° #FF0000 -> red æ²¡æœ‰æ‰¾åˆ°è¿”å›žundefined
   hex2Name: function(hex) {
     return this.dict_hex2Name[hex];
   },
-  //RGB×ª16½øÖÆ ¿ÉÒÔ´«Êý×Ö ºÍ rgb(255,0,0) ÕâÑùµÄ×Ö·û´®
+  //RGBè½¬16è¿›åˆ¶ å¯ä»¥ä¼ æ•°å­— å’Œ rgb(255,0,0) è¿™æ ·çš„å­—ç¬¦ä¸²
   RGB2Hex: function(r, g, b) {
     if (arguments.length > 1) {
       return this.toHexColor.apply(this, arguments)
@@ -299,7 +299,7 @@ var colorConvert = {
     var _b = parseInt(arr[2]);
     return this.toHexColor(_r, _g, _b);
   },
-  //RGB×ª16½øÖÆ Ö»ÄÜ´«Êý×Ö
+  //RGBè½¬16è¿›åˆ¶ åªèƒ½ä¼ æ•°å­—
   toHexColor: function(r, g, b) {
     var hex = '#';
     var hexStr = '0123456789ABCDEF';
@@ -317,7 +317,7 @@ var colorConvert = {
     hex += hexStr.charAt(high) + hexStr.charAt(low);
     return hex;
   },
-  //16½øÖÆ×ªRGB
+  //16è¿›åˆ¶è½¬RGB
   hex2RGB: function(hex) {
     hex = hex.replace("#", "");
     var r = parseInt(hex.substring(0, 2), 16);
@@ -325,7 +325,7 @@ var colorConvert = {
     var b = parseInt(hex.substring(4, 6), 16);
     return [r, g, b];
   },
-  //RGB×ªÑÕÉ«Ãû³Æ rgb(255,0,0) -> red Ã»ÓÐÕÒµ½·µ»Øundefined
+  //RGBè½¬é¢œè‰²åç§° rgb(255,0,0) -> red æ²¡æœ‰æ‰¾åˆ°è¿”å›žundefined
   RGB2Name: function(r, g, b) {
     var hex;
     if (arguments.length > 1) {
@@ -335,4 +335,17 @@ var colorConvert = {
     }
     return this.hex2Name(hex);
   }
-}
+};
+(function (root, factory) {
+  "use strict";
+  if (typeof define === 'function' && define.amd) {
+    define([], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory();
+  } else {
+    root.returnExports = factory();
+  }
+}(this, function () {
+  'use strict';
+  return colorConvert;
+}));
